@@ -1,0 +1,19 @@
+name: astrbot_plugin_qq_kit
+display_name: 本少的qq机器人功能包
+short_desc: 本少的 QQ 机器人功能包（占位版，持续开发）
+desc: |
+  本少的 QQ 机器人功能包。
+
+  这是一个持续开发的占位插件，围绕 QQ 机器人的日常使用逐步补充能力。
+  当前仅提供状态查询，用于验证插件骨架、加载链路与发版流程。
+
+  使用方式：发送 `/qqsvc` 查看插件是否在线。
+version: 0.1.0
+author: DanDingBenShao
+repo: https://github.com/DanDingBenShao/astrbot_plugin_qq_kit
+astrbot_version: ">=4.29.0"
+support_platforms:
+  - aiocqhttp
+tags:
+  - qq
+  - 工具
