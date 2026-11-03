@@ -1,68 +1,39 @@
 # 本少的qq机器人功能包
 
-> AstrBot 插件 · **占位版，持续开发中**
+> AstrBot 插件 · **套件门面 v0.2.0**
 
-本少的 QQ 机器人功能包。围绕 QQ 机器人的日常使用逐步补充能力，当前为占位版本，用于打通插件骨架、加载链路与发版流程。
+本少的 QQ 机器人套件主框架的「壳」：自动探测本机已装的本少系组件插件，`/qqkit` 输出聚合状态页。组件可散装单装，也可全家桶聚合使用；门面自身不做业务逻辑。
 
-## 现状
+## 架构定位
 
-| 项 | 值 |
-|---|---|
-| 版本 | 0.1.0 |
-| 支持平台 | `aiocqhttp`（OneBot v11） |
-| AstrBot 版本 | `>=4.29.0` |
-| 额外依赖 | 无 |
+```
+┌─ astrbot_plugin_qqmind（判读门+记忆+人设 主体）─┐
+qq_kit（门面）── 探测/状态页 ──┤ 未来的散装组件（日记/token/人设…）├─ 各自独立启停
+```
+
+- **组件**：独立插件，独立配置、独立数据目录（plugin_data）、独立启停
+- **门面**：只做「发现 + 状态汇总」，不持有组件逻辑；卸掉门面组件照常跑
 
 ## 指令
 
 | 指令 | 说明 |
 |---|---|
-| `/qqsvc` | 查看插件版本与会话标识 |
+| `/qqkit` | 套件组件状态页（安装/启停/版本聚合） |
+| `/qqsvc` | 门面自身在线检查（0.1 兼容保留） |
+
+## 组件识别约定
+
+- 插件 `name` 以 `astrbot_plugin_qqmind` / `astrbot_plugin_qq_kit` 开头
+- 或 `author` 含 DanDingBenShao 且 `name` 以 `astrbot_plugin_` 开头
 
 ## 安装
 
-**方式一：从链接安装**（推荐，无需审核）
-
-AstrBot 管理面板 → 插件 → 插件市场 → 右下角 `+` → **从链接安装** → 填入：
+从 AstrBot 插件市场或仓库安装：
 
 ```
 https://github.com/DanDingBenShao/astrbot_plugin_qq_kit
 ```
 
-**方式二：手动放入**
+## License
 
-把本仓库内容复制到 `AstrBot/data/plugins/astrbot_plugin_qq_kit/`，然后在面板里点「重载」。
-
-**方式三：插件市场**（需 AstrBot Cloud 账号并通过审核）
-
-见 <https://cloud.astrbot.app/publish>。
-
-## 更新
-
-1. 改代码
-2. **同时**改两处版本号：`metadata.yaml` 的 `version`、`main.py` 的 `PLUGIN_VERSION`
-3. 推到 GitHub
-4. 用户在面板点「更新」
-
-版本号是面板判断"有没有新版本"的唯一依据，两处必须一致。
-
-## 开发
-
-```bash
-# 无需额外依赖
-# 改完代码在面板点「重载」即可，不用重启 AstrBot
-```
-
-调试指令可以用 WebUI 的聊天页直接发 `/qqsvc`，不必经过 QQ。
-
-## Roadmap
-
-- [ ] 群消息处理钩子
-- [ ] 群管理与白名单联动
-- [ ] 外部服务对接
-- [ ] 插件自带配置页
-- [ ] 消息归档与检索
-
-## 许可证
-
-[MIT](LICENSE)
+MIT

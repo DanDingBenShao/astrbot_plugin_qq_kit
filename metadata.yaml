@@ -1,14 +1,15 @@
 name: astrbot_plugin_qq_kit
 display_name: 本少的qq机器人功能包
-short_desc: 本少的 QQ 机器人功能包（占位版，持续开发）
+short_desc: 套件门面——探测本少系组件插件，/qqkit 聚合状态页
 desc: |
-  本少的 QQ 机器人功能包。
+  本少的 QQ 机器人功能包（套件门面）。
 
-  这是一个持续开发的占位插件，围绕 QQ 机器人的日常使用逐步补充能力。
-  当前仅提供状态查询，用于验证插件骨架、加载链路与发版流程。
+  套件主框架的壳：自动探测本机已装的本少系组件插件（如
+  astrbot_plugin_qqmind），/qqkit 输出组件安装/启停/版本聚合状态页。
+  组件可散装单装，也可全家桶聚合使用；门面自身不做业务逻辑。
 
-  使用方式：发送 `/qqsvc` 查看插件是否在线。
-version: 0.1.0
+  使用方式：发送 `/qqkit` 查看套件组件状态。
+version: 0.2.0
 author: DanDingBenShao
 repo: https://github.com/DanDingBenShao/astrbot_plugin_qq_kit
 astrbot_version: ">=4.29.0"
